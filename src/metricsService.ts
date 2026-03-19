@@ -244,17 +244,21 @@ export class MetricsService {
         });
 
         vscode.commands.registerCommand('metricsExporter.uploadAllTillYesterday', async () => {
-            // Show confirmation dialog before uploading all data
-            const confirm = await vscode.window.showWarningMessage(
-                'Are you sure you want to Upload All? This may take a long time to complete. For daily routine work, it is recommended to use "Upload Last 7 Days" instead.',
-                { modal: true },
-                'Yes, Upload All',
-                'Cancel'
-            );
-            
-            if (confirm === 'Yes, Upload All') {
-                await this.exportMetricsWithTimeFilter('allTillYesterday');
-            }
+            // [TEMPORARILY DISABLED] Upload All functionality
+            // To re-enable: uncomment the block below and remove the showInformationMessage line
+            // Also change "when": "false" back to "when": "view == metricsExporter" in package.json
+            vscode.window.showInformationMessage('Upload All Till Yesterday is temporarily disabled. Please use "Upload Today" or "Upload Last 7 Days" instead.');
+            // // Show confirmation dialog before uploading all data
+            // const confirm = await vscode.window.showWarningMessage(
+            //     'Are you sure you want to Upload All? This may take a long time to complete. For daily routine work, it is recommended to use "Upload Last 7 Days" instead.',
+            //     { modal: true },
+            //     'Yes, Upload All',
+            //     'Cancel'
+            // );
+            //
+            // if (confirm === 'Yes, Upload All') {
+            //     await this.exportMetricsWithTimeFilter('allTillYesterday');
+            // }
         });
     }
 

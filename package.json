@@ -233,7 +233,7 @@
         },
         {
           "command": "metricsExporter.uploadAllTillYesterday",
-          "when": "view == metricsExporter",
+          "when": "false",
           "group": "navigation@3"
         }
       ]
